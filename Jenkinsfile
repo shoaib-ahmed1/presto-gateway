@@ -26,7 +26,8 @@ pipeline {
 
             steps {
                 sh """
-                python3 totalRunningQueries.py
+                running = python3 totalRunningQueries.py
+                echo $running
                 """
             }
          }
