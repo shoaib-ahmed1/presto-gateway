@@ -3,7 +3,7 @@ from trino.dbapi import connect
 def totalRunningQueries():
     conn = connect(
         host="coordinator",
-        port=8001,
+        port=8080,
         user="adhoc"
     )
     cur = conn.cursor()
