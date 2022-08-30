@@ -25,10 +25,11 @@ pipeline {
       stage('totalRunningQueries') {
 
             steps {
-                sh """
-                running = python3 totalRunningQueries.py
-                echo $running
-                """
+                step('totalRunningQueries_1') {
+            script {
+                def totalRunningQueriesVar = bat(script: 'python3 totalRunningQueries.py', returnStdout: true)
+            }
+        }
             }
          }
     }
