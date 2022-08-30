@@ -25,11 +25,9 @@ pipeline {
       stage('totalRunningQueries') {
 
             steps {
-                step('totalRunningQueries_1') {
-            script {
-                def totalRunningQueriesVar = bat(script: 'python3 totalRunningQueries.py', returnStdout: true)
-            }
-        }
+                script {
+                    def totalRunningQueriesVar = bat(script: 'python3 totalRunningQueries.py', returnStdout: true)
+                }
             }
          }
     }
