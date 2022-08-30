@@ -23,10 +23,13 @@ pipeline {
             }
          }
       stage('totalRunningQueries') {
-               script {
+
+            steps {
+                script {
                     def totalRunningQueriesVar = sh(returnStdout: true, script: 'python3 totalRunningQueries.py')
-                    echo "$totalRunningQueriesVar"
+                    echo $totalRunningQueriesVar
                 }
+            }
          }
     }
 }
