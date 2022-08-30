@@ -26,7 +26,7 @@ pipeline {
 
             steps {
                 script {
-                    def totalRunningQueriesVar = bat(script: 'python3 totalRunningQueries.py', returnStdout: true)
+                    def totalRunningQueriesVar = sh(returnStdout: true, script: 'python3 totalRunningQueries.py')
                 }
             }
          }
