@@ -28,8 +28,7 @@ pipeline {
        
               dir('presto-gateway'){
                 sh """
-                totalRunningQueriesVar = python3 totalRunningQueries.py
-                echo $totalRunningQueriesVar
+                python3 totalRunningQueries.py
                 """
               }
             }
