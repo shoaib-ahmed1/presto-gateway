@@ -13,7 +13,4 @@ def totalRunningQueries():
     return rows[0]
 
 if __name__ == "__main__":
-    if totalRunningQueries() == 1:
-        print("1")
-    else:
-        print("2")
+    totalRunningQueries()
