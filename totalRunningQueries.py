@@ -2,7 +2,7 @@ from trino.dbapi import connect
 
 def totalRunningQueries():
     conn = connect(
-        host="localhost",
+        host="coordinator",
         port=8001,
         user="adhoc"
     )
