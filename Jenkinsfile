@@ -23,11 +23,12 @@ pipeline {
             }
          }
       stage('totalRunningQueries') {
-
-            steps {
-                script {
-                    def totalRunningQueriesVar = sh(returnStdout: true, script: 'python3 totalRunningQueries.py')
-                    echo $totalRunningQueriesVar
+            timeout(5) {
+                waitUntil {
+                    script {
+                        def r = sh script: 'python3 totalRunningQueries.py', returnStdout: true
+                        return (r == 0);
+                    }
                 }
             }
          }
