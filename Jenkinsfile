@@ -25,12 +25,9 @@ pipeline {
       stage('totalRunningQueries') {
 
             steps {
-       
-              dir('/'){
                 sh """
                 python3 totalRunningQueries.py
                 """
-              }
             }
          }
     }
