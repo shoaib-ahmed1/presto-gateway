@@ -26,7 +26,7 @@ pipeline {
 
             steps {
        
-              dir('presto-gateway'){
+              dir('/'){
                 sh """
                 python3 totalRunningQueries.py
                 """
