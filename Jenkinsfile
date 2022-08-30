@@ -23,14 +23,12 @@ pipeline {
             }
          }
       stage('totalRunningQueries') {
-            timeout(5) {
                 waitUntil {
                     script {
                         def r = sh script: 'python3 totalRunningQueries.py', returnStdout: true
                         return (r == 0);
                     }
                 }
-            }
          }
     }
 }
