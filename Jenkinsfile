@@ -27,6 +27,7 @@ pipeline {
             steps {
                 script {
                     def totalRunningQueriesVar = sh(returnStdout: true, script: 'python3 totalRunningQueries.py')
+                    echo $totalRunningQueriesVar
                 }
             }
          }
