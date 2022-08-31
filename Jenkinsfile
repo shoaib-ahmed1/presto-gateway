@@ -34,7 +34,6 @@ pipeline {
                             return true
                         }else {
                             println("waiting for running queries to stop!")
-                            totalRunningQueriesVar = 0
                             return false
                         }
                     }
