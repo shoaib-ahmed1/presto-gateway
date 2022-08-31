@@ -25,10 +25,18 @@ pipeline {
       stage('totalRunningQueries') {
 
             steps {
-                script {
-                    def res = sh(returnStdout: true, script: 'python3 totalRunningQueries.py')
-                    int totalRunningQueriesVar = res as Integer
-                    echo "$totalRunningQueriesVar"
+                waitUntil(initialRecurrencePeriod: 15000) {
+                    script {
+                        def res = sh(returnStdout: true, script: 'python3 totalRunningQueries.py')
+                        int totalRunningQueriesVar = res as Integer
+                        echo "$totalRunningQueriesVar"
+                        if ( totalRunningQueriesVar <= 1) {
+                            return true
+                        }else {
+                            println("waiting for running queries to stop!")
+                            return false
+                        }
+                    }
                 }
             }
          }
