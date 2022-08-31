@@ -30,7 +30,7 @@ pipeline {
                         def res = sh(returnStdout: true, script: 'python3 totalRunningQueries.py')
                         int totalRunningQueriesVar = res as Integer
                         echo "$totalRunningQueriesVar"
-                        if ( totalRunningQueriesVar <= 0) {
+                        if ( totalRunningQueriesVar <= 1) {
                             return true
                         }else {
                             println("waiting for running queries to stop!")
