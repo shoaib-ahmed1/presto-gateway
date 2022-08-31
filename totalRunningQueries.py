@@ -1,3 +1,4 @@
+import sys
 from trino.dbapi import connect
 
 def totalRunningQueries():
@@ -13,4 +14,4 @@ def totalRunningQueries():
     return rows[0]
 
 if __name__ == "__main__":
-    totalRunningQueries()
+    sys.stdout.write(totalRunningQueries()
