@@ -14,4 +14,4 @@ def totalRunningQueries():
     return rows[0]
 
 if __name__ == "__main__":
-    sys.stdout.write(totalRunningQueries()
+    sys.stdout.write(str(totalRunningQueries()))
