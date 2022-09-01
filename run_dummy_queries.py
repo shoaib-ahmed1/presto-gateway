@@ -11,7 +11,7 @@ def runDummyQueries(argv):
 
     list = []
     queries = [
-        "select count(1) from(select * from tpch.tiny.part limit 0)",
+        "select count(1) from(select * from tpch.tiny.part limit 1)",
         "select count(1) from(select * from tpch.tiny.orders limit 1)",
         # "select count(*) from tpch.tiny.supplier limit 1",
         # "select count(*) from tpch.tiny.orders limit 1",
