@@ -32,7 +32,7 @@ def runDummyQueries(argv):
         return (0 in list)
     except :
         #print("Unknown error occurred")
-        return False
+        return True
 
 
 if __name__ == "__main__":
