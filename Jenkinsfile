@@ -27,6 +27,7 @@ pipeline {
                                 println("waiting for coordinator to respond")
                                 return false
                             }else {
+                                println("coordinator is responding...")
                                 return true
                             }
                         }
