@@ -15,6 +15,24 @@ pipeline {
        
             }
          }
+        stage('RunDummyQueries') {
+
+            steps {
+                waitUntil(initialRecurrencePeriod: 15000) {
+                    script {
+                            def res = sh(returnStdout: true, script: 'python3 run_dummy_queries.py localhost 8001')
+                            boolean success = res as bool
+                            echo "$success"
+                            if ( success == true) {
+                                println("waiting for coordinator to respond")
+                                return false
+                            }else {
+                                return true
+                            }
+                        }
+                }
+            }
+         }
          stage('DeactivateBackend') {
 
             steps {
