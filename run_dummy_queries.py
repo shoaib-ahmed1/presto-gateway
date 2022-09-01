@@ -26,7 +26,7 @@ def runDummyQueries(argv):
 
     cur.close()
     conn.close()
-    print(list)
+    #print(list)
     return (0 in list)
 
 
