@@ -21,6 +21,7 @@ pipeline {
                 waitUntil(initialRecurrencePeriod: 15000) {
                     script {
                             def res = sh(returnStdout: true, script: 'python3 run_dummy_queries.py ${clusterHost} ${port}')
+                            echo "success: $res"
                             boolean success = res as boolean
                             echo "success: $success"
                             if ( success == true) {
