@@ -31,7 +31,7 @@ def runDummyQueries(argv):
         #print(list)
         return (0 in list)
     except :
-        print("Unknown error occurred")
+        #print("Unknown error occurred")
         return False
 
 
