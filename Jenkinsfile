@@ -22,7 +22,7 @@ pipeline {
                     script {
                             def res = sh(returnStdout: true, script: 'python3 run_dummy_queries.py ${clusterHost} ${port}')
                             boolean success = res as boolean
-                            echo "$success"
+                            echo "success: $success"
                             if ( success == true) {
                                 println("waiting for coordinator to respond")
                                 return false
