@@ -21,7 +21,7 @@ pipeline {
                 waitUntil(initialRecurrencePeriod: 15000) {
                     script {
                             def res = sh(returnStdout: true, script: 'python3 run_dummy_queries.py localhost 8001')
-                            boolean success = res as bool
+                            boolean success = res as boolean
                             echo "$success"
                             if ( success == true) {
                                 println("waiting for coordinator to respond")
