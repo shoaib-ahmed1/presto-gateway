@@ -34,7 +34,7 @@ pipeline {
 
             steps {
        
-               sh """curl -s -X POST http://presto-gateway-container:8090/gateway/backend/deactivate/${clusterName}"""
+               sh """curl -s -X POST http://presto-gateway-container:8090/gateway/backend/deactivate/${ClusterNameToUpgrade}"""
             }
          }
       stage('TotalRunningQueriesOldBackend') {
@@ -42,7 +42,7 @@ pipeline {
             steps {
                 waitUntil(initialRecurrencePeriod: 15000) {
                     script {
-                        def res = sh(returnStdout: true, script: 'python3 totalRunningQueries.py')
+                        def res = sh(returnStdout: true, script: 'python3 totalRunningQueries.py ${clusterHost}')
                         int totalRunningQueriesVar = res as Integer
                         echo "$totalRunningQueriesVar"
                         if ( totalRunningQueriesVar <= 1) {
