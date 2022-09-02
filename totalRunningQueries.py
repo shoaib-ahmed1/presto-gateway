@@ -1,9 +1,9 @@
 import sys
 from trino.dbapi import connect
 
-def totalRunningQueries():
+def totalRunningQueries(argv):
     conn = connect(
-        host="coordinator",
+        host=str(argv[0]),
         port=8080,
         user="adhoc"
     )
@@ -14,4 +14,4 @@ def totalRunningQueries():
     return rows[0]
 
 if __name__ == "__main__":
-    sys.stdout.write(str(totalRunningQueries()))
+    sys.stdout.write(str(totalRunningQueries(sys.argv[1:])))
