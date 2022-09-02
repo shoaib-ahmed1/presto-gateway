@@ -19,8 +19,8 @@ pipeline {
                             echo "response: $response"
                             // True = atleast one query failed to execute
                             // False = no query failed to execute. all is well
-                            if ( res == "True") {
-                                println("waiting for coordinator to respond")
+                            if ( response == "True") {
+                                println("waiting for coordinator to respond...")
                                 return false
                             }else {
                                 println("coordinator is responding...")
